@@ -4,7 +4,6 @@ import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import ru.vsu.cs.languagecourses_2_0.entity.Language;
 import ru.vsu.cs.languagecourses_2_0.entity.Level;
 
 import java.util.List;

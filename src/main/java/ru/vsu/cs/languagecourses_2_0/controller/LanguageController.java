@@ -3,12 +3,9 @@ package ru.vsu.cs.languagecourses_2_0.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.vsu.cs.languagecourses_2_0.entity.Language;
 import ru.vsu.cs.languagecourses_2_0.entity.dto.LanguageDto;
-import ru.vsu.cs.languagecourses_2_0.repository.LanguageRepository;
 import ru.vsu.cs.languagecourses_2_0.service.LanguageService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

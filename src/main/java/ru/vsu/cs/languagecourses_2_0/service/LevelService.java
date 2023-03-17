@@ -2,7 +2,6 @@ package ru.vsu.cs.languagecourses_2_0.service;
 
 import org.springframework.stereotype.Service;
 import ru.vsu.cs.languagecourses_2_0.entity.Level;
-import ru.vsu.cs.languagecourses_2_0.entity.dto.IntensityDto;
 import ru.vsu.cs.languagecourses_2_0.entity.dto.LevelDto;
 import ru.vsu.cs.languagecourses_2_0.mapper.LevelMapper;
 import ru.vsu.cs.languagecourses_2_0.repository.LevelRepository;
