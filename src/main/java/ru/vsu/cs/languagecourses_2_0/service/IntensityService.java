@@ -34,7 +34,10 @@ public class IntensityService {
     }
 
     public IntensityDto getById(Long id) {
-        return mapper.toDTO(repository.findById(id));
+        Intensity intensity = repository.findById(id);
+        if (intensity != null) {
+            return mapper.toDTO(repository.findById(id));
+        } else return null;
     }
 
     public void deleteIntensity(Long id) {
@@ -44,6 +47,6 @@ public class IntensityService {
     public void updateIntensity(Long id, IntensityDto intensityDto) {
         Intensity oldIntensity = findById(id);
         oldIntensity.setName(intensityDto.getName());
-        repository.save(oldIntensity);
+        repository.update(oldIntensity);
     }
 }

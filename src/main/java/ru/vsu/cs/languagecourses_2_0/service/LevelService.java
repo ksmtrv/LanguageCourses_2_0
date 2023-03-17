@@ -31,11 +31,14 @@ public class LevelService {
 
     private Level findById(Long id) {
         return repository.findAll().stream()
-                .filter(val->val.getId().equals(id)).toList().get(0);
+                .filter(val -> val.getId().equals(id)).toList().get(0);
     }
 
     public LevelDto getById(Long id) {
-        return mapper.toDTO(repository.findById(id));
+        Level level = repository.findById(id);
+        if (level != null) {
+            return mapper.toDTO(repository.findById(id));
+        } else return null;
     }
 
     public void deleteLevel(Long id) {
@@ -45,6 +48,6 @@ public class LevelService {
     public void updateLevel(Long id, LevelDto levelDto) {
         Level oldLevel = findById(id);
         oldLevel.setName(levelDto.getName());
-        repository.save(oldLevel);
+        repository.update(oldLevel);
     }
 }

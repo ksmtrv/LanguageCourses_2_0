@@ -30,7 +30,10 @@ public class LanguageService {
     }
 
     public LanguageDto getById(Long id) {
-        return mapper.toDTO(repository.findById(id));
+        Language language = repository.findById(id);
+        if (language != null) {
+            return mapper.toDTO(repository.findById(id));
+        } else return null;
     }
 
     private Language findById(Long id) {
@@ -45,6 +48,6 @@ public class LanguageService {
     public void updateLanguage(Long id, LanguageDto languageDto) {
         Language oldLanguage = findById(id);
         oldLanguage.setName(languageDto.getName());
-        repository.save(oldLanguage);
+        repository.update(oldLanguage);
     }
 }
