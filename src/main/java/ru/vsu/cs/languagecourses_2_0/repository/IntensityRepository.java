@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public class IntensityRepository implements CrudRepository<Intensity>{
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
 
     public IntensityRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;

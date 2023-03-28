@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import ru.vsu.cs.languagecourses_2_0.entity.Language;
 
 import java.util.List;
+
 @Repository
 public class LanguageRepository implements CrudRepository<Language>{
     private JdbcTemplate jdbcTemplate;
