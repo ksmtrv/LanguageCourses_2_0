@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class CourseDto {
     private String title;
-    private String price;
+    private Integer price;
 }

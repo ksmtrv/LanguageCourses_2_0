@@ -3,20 +3,38 @@ package ru.vsu.cs.languagecourses_2_0.service;
 import org.springframework.stereotype.Service;
 import ru.vsu.cs.languagecourses_2_0.mapper.CourseMapper;
 import ru.vsu.cs.languagecourses_2_0.repository.CourseRepository;
+import ru.vsu.cs.languagecourses_2_0.repository.IntensityRepository;
+import ru.vsu.cs.languagecourses_2_0.repository.LanguageRepository;
+import ru.vsu.cs.languagecourses_2_0.repository.LevelRepository;
 
 @Service
 public class CourseService {
     private final CourseRepository repository;
     private final CourseMapper mapper;
+    private final LanguageRepository languageRepository;
+    private final LevelRepository levelRepository;
+    private final IntensityRepository intensityRepository;
+    private final CourseFullMapper fullMapper;
 
-    public CourseService(CourseRepository repository, CourseMapper mapper) {
+    public CourseService(
+            CourseRepository repository,
+            CourseMapper mapper,
+            LanguageRepository languageRepository,
+            LevelRepository levelRepository,
+            IntensityRepository intensityRepository,
+            CourseFullMapper fullMapper
+    ) {
         this.repository = repository;
         this.mapper = mapper;
+        this.languageRepository = languageRepository;
+        this.levelRepository = levelRepository;
+        this.intensityRepository = intensityRepository;
+        this.fullMapper = fullMapper;
     }
 
-    public List<CourseDto> getAllCourse() {
-        return repository.findAll().stream()
-                .map(mapper::toDTO).collect(Collectors.toList());
+    public List<CourseFullDto> getAllCourse() {
+        return repository.findAllFull().stream()
+                .map(fullMapper::toDTO).collect(Collectors.toList());
     }
 
     public void saveNewCourse(CourseDto courseDto) {

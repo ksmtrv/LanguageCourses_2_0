@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.vsu.cs.languagecourses_2_0.entity.Course;
+import ru.vsu.cs.languagecourses_2_0.entity.CourseFull;
 
 import java.util.List;
 
@@ -48,5 +49,10 @@ public class CourseRepository implements CrudRepository<Course> {
     public List<Course> findAll() {
         return jdbcTemplate.query("SELECT * from course",
                 BeanPropertyRowMapper.newInstance(Course.class));
+    }
+
+    public List<CourseFull> findAllFull() {
+        return jdbcTemplate.query("SELECT * from course",
+                BeanPropertyRowMapper.newInstance(CourseFull.class));
     }
 }
