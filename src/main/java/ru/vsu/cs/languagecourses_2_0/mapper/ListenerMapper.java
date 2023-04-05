@@ -9,11 +9,19 @@ public class ListenerMapper implements Mapper<Listener, ListenerDto>{
 
     @Override
     public ListenerDto toDTO(Listener entity) {
-        return null;
+        ListenerDto listenerDto = new ListenerDto();
+        listenerDto.setSurname(entity.getSurname());
+        listenerDto.setName(entity.getName());
+        listenerDto.setEmail(entity.getEmail());
+        return listenerDto;
     }
 
     @Override
     public Listener toEntity(ListenerDto dto) {
-        return null;
+        Listener listener = new Listener();
+        listener.setSurname(dto.getSurname());
+        listener.setName(dto.getName());
+        listener.setEmail(dto.getEmail());
+        return listener;
     }
 }
