@@ -24,9 +24,9 @@ public class ListenerService {
                 .map(mapper::toDTO).collect(Collectors.toList());
     }
 
-    public void saveNewListener(ListenerDto listenerDto) {
-        repository.save(mapper.toEntity(listenerDto));
-    }
+//    public void saveNewListener(ListenerDto listenerDto) {
+//        repository.save(mapper.toEntity(listenerDto));
+//    }
 
     private Listener findById(Long id) {
         return repository.findAll().stream()
@@ -40,15 +40,15 @@ public class ListenerService {
         } else return null;
     }
 
-    public void deleteListener(Long id) {
-        repository.deleteById(id);
-    }
-
-    public void updateListener(Long id, ListenerDto listenerDto) {
-        Listener oldListener = findById(id);
-        oldListener.setSurname(listenerDto.getSurname());
-        oldListener.setName(listenerDto.getName());
-        oldListener.setEmail(listenerDto.getEmail());
-        repository.update(oldListener);
-    }
+//    public void deleteListener(Long id) {
+//        repository.deleteById(id);
+//    }
+//
+//    public void updateListener(Long id, ListenerDto listenerDto) {
+//        Listener oldListener = findById(id);
+//        oldListener.setSurname(listenerDto.getSurname());
+//        oldListener.setName(listenerDto.getName());
+//        oldListener.setEmail(listenerDto.getEmail());
+//        repository.update(oldListener);
+//    }
 }

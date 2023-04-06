@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.jdbc.core.mapping.AggregateReference;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
@@ -29,4 +30,16 @@ public class Listener {
     private String email;
     @MappedCollection(idColumn = "listener_id", keyColumn = "course_id")
     Set<CourseRef> courses = new HashSet<>();
+
+    public void addCourse(Course course) {
+        this.courses.add(new CourseRef(AggregateReference.to(course.getId())));
+    }
+
+    public void removeCourse(Course course) {
+        this.courses.remove(new CourseRef(AggregateReference.to(course.getId())));
+    }
+
+    public void addCourseRef(CourseRef courseRef) {
+        this.courses.add(courseRef);
+    }
 }

@@ -18,20 +18,20 @@ public class LanguageRepository implements CrudRepository<Language>{
 
     @Override
     public int save(Language language) {
-        return jdbcTemplate.update("INSERT INTO intensity (name) VALUES(?)",
+        return jdbcTemplate.update("INSERT INTO language (name) VALUES(?)",
                 new Object[] {language.getName()});
     }
 
     @Override
     public int update(Language language) {
-        return jdbcTemplate.update("UPDATE intensity SET name=?  WHERE id=?",
+        return jdbcTemplate.update("UPDATE language SET name=?  WHERE id=?",
                 new Object[] {language.getName(), language.getId()});
     }
 
     @Override
     public Language findById(Long id) {
         try {
-            Language language = jdbcTemplate.queryForObject("SELECT * FROM intensity WHERE id=?",
+            Language language = jdbcTemplate.queryForObject("SELECT * FROM language WHERE id=?",
                     BeanPropertyRowMapper.newInstance(Language.class), id);
             return language;
         } catch (IncorrectResultSizeDataAccessException e) {

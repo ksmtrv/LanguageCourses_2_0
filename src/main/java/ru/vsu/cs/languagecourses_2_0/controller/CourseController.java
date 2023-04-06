@@ -3,17 +3,16 @@ package ru.vsu.cs.languagecourses_2_0.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.vsu.cs.languagecourses_2_0.entity.dto.CourseDto;
 import ru.vsu.cs.languagecourses_2_0.entity.dto.CourseFullDto;
-import ru.vsu.cs.languagecourses_2_0.service.CourseService;
+import ru.vsu.cs.languagecourses_2_0.service.CourseFullService;
 
 import java.util.List;
 
 @RestController
 public class CourseController {
-    private final CourseService courseService;
+    private final CourseFullService courseService;
 
-    public CourseController(CourseService courseService) {
+    public CourseController(CourseFullService courseService) {
         this.courseService = courseService;
     }
 
@@ -34,9 +33,9 @@ public class CourseController {
     }
 
     @PostMapping("/courses")
-    public ResponseEntity<String> createCourses(@RequestBody CourseDto courseDto) {
+    public ResponseEntity<String> createCourses(@RequestBody CourseFullDto courseFullDto) {
         try {
-            courseService.saveNewCourse(courseDto);
+            courseService.saveNewCourse(courseFullDto);
             return new ResponseEntity<>("Course was created successfully.", HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -44,11 +43,11 @@ public class CourseController {
     }
 
     @PutMapping("/courses/{id}")
-    public ResponseEntity<String> updateCourse(@PathVariable("id") long id, @RequestBody CourseDto rCourseDto) {
-        CourseDto courseDto = courseService.getById(id);
+    public ResponseEntity<String> updateCourse(@PathVariable("id") long id, @RequestBody CourseFullDto rCourseFullDto) {
+        CourseFullDto courseFullDto = courseService.getById(id);
 
-        if (courseDto != null) {
-            courseService.updateCourse(id, rCourseDto);
+        if (courseFullDto != null) {
+            courseService.updateCourse(id, rCourseFullDto);
             return new ResponseEntity<>("Course was updated successfully.", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Cannot find Course with id=" + id, HttpStatus.NOT_FOUND);
