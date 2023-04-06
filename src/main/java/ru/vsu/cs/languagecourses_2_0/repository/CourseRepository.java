@@ -50,9 +50,4 @@ public class CourseRepository implements CrudRepository<Course> {
         return jdbcTemplate.query("SELECT * from course",
                 BeanPropertyRowMapper.newInstance(Course.class));
     }
-
-    public List<CourseFull> findAllFull() {
-        return jdbcTemplate.query("SELECT * from course",
-                BeanPropertyRowMapper.newInstance(CourseFull.class));
-    }
 }
