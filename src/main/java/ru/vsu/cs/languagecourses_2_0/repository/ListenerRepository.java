@@ -5,8 +5,6 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.vsu.cs.languagecourses_2_0.entity.CourseRef;
-import ru.vsu.cs.languagecourses_2_0.entity.Language;
-import ru.vsu.cs.languagecourses_2_0.entity.Level;
 import ru.vsu.cs.languagecourses_2_0.entity.Listener;
 
 import java.util.List;

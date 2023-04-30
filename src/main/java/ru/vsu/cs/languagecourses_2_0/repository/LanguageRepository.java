@@ -31,9 +31,8 @@ public class LanguageRepository implements CrudRepository<Language>{
     @Override
     public Language findById(Long id) {
         try {
-            Language language = jdbcTemplate.queryForObject("SELECT * FROM language WHERE id=?",
+            return jdbcTemplate.queryForObject("SELECT * FROM language WHERE id=?",
                     BeanPropertyRowMapper.newInstance(Language.class), id);
-            return language;
         } catch (IncorrectResultSizeDataAccessException e) {
             return null;
         }

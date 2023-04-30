@@ -1,12 +1,9 @@
 package ru.vsu.cs.languagecourses_2_0.service;
 
 import org.springframework.stereotype.Service;
-import ru.vsu.cs.languagecourses_2_0.entity.Course;
 import ru.vsu.cs.languagecourses_2_0.entity.CourseFull;
-import ru.vsu.cs.languagecourses_2_0.entity.dto.CourseDto;
 import ru.vsu.cs.languagecourses_2_0.entity.dto.CourseFullDto;
 import ru.vsu.cs.languagecourses_2_0.mapper.CourseFullMapper;
-import ru.vsu.cs.languagecourses_2_0.mapper.CourseMapper;
 import ru.vsu.cs.languagecourses_2_0.repository.*;
 
 import java.util.List;

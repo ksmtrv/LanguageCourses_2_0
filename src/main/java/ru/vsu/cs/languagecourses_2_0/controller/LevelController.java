@@ -2,13 +2,14 @@ package ru.vsu.cs.languagecourses_2_0.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 import ru.vsu.cs.languagecourses_2_0.entity.dto.LevelDto;
 import ru.vsu.cs.languagecourses_2_0.service.LevelService;
 
 import java.util.List;
 
-@RestController
+@Component
 public class LevelController {
     private final LevelService levelService;
 
